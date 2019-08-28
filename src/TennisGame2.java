@@ -44,10 +44,14 @@ public class TennisGame2 implements TennisGame
 	}
 
 	private void win() {
-		if (P1Points>=4 && P2Points>=0 && (P1Points-P2Points)>=2)
+		if (isWinnerOver(P1Points, P2Points))
             score = "Win for player1";
-        if (P2Points>=4 && P1Points>=0 && (P2Points-P1Points)>=2)
+        if (isWinnerOver(P2Points, P1Points))
             score = "Win for player2";
+	}
+
+	private boolean isWinnerOver(int firstPlayerPoints, int secondPlayerPoints) {
+		return firstPlayerPoints>=4 && secondPlayerPoints>=0 && (firstPlayerPoints-secondPlayerPoints)>=2;
 	}
 
 	private void advantage() {
