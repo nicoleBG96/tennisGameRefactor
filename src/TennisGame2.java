@@ -20,18 +20,18 @@ public class TennisGame2 implements TennisGame
         	score = getLiteralScore(P1Points)+ "-All";
         if (isDeuce())
         	score = "deuce";
-        normal();
+        if(isNormal())
+        	score = getLiteralScore(P1Points) 
+			+ "-" 
+			+ getLiteralScore(P2Points);
         advantage();
         win();
         return score;
     }
 
-	private void normal() {
-		if (P1Points !=P2Points  && 
-		(P1Points<4 || P2Points<4))
-			score = getLiteralScore(P1Points) 
-			+ "-" 
-			+ getLiteralScore(P2Points);
+	private boolean isNormal() {
+		return P1Points !=P2Points  && 
+		(P1Points<4 || P2Points<4);
 	}
 
 
