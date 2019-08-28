@@ -2,8 +2,8 @@
 public class TennisGame2 implements TennisGame
 {
 
-    public int P1Res = 0;
-    public int P2Res = 0;
+    public int P1Points = 0;
+    public int P2Points = 0;
     
     private String player1Name;
     private String player2Name;
@@ -24,38 +24,38 @@ public class TennisGame2 implements TennisGame
     }
 
 	private String normal(String score) {
-		if (P1Res !=P2Res  && 
-		(P1Res<4 || P2Res<4))
-			score = getLiteralScore(P1Res) 
+		if (P1Points !=P2Points  && 
+		(P1Points<4 || P2Points<4))
+			score = getLiteralScore(P1Points) 
 			+ "-" 
-			+ getLiteralScore(P2Res);
+			+ getLiteralScore(P2Points);
 		return score;
 	}
 
 	private String deuce(String score) {
-		if (P1Res==P2Res && P1Res>=3)
+		if (P1Points==P2Points && P1Points>=3)
 			score = "deuce";
 		return score;
 	}
 
 	private String tie(String score) {
-	 if ( P1Res == P2Res && P1Res < 4)
-		 score = getLiteralScore(P1Res)+ "-All";
+	 if ( P1Points == P2Points && P1Points < 4)
+		 score = getLiteralScore(P1Points)+ "-All";
 	return score;
 	}
 
 	private String win(String score) {
-		if (P1Res>=4 && P2Res>=0 && (P1Res-P2Res)>=2)
+		if (P1Points>=4 && P2Points>=0 && (P1Points-P2Points)>=2)
             score = "Win for player1";
-        if (P2Res>=4 && P1Res>=0 && (P2Res-P1Res)>=2)
+        if (P2Points>=4 && P1Points>=0 && (P2Points-P1Points)>=2)
             score = "Win for player2";
         return score;
 	}
 
 	private String advantage(String score) {
-		if (P1Res > P2Res && P2Res >= 3)
+		if (P1Points > P2Points && P2Points >= 3)
             score = "Advantage player1";
-        if (P2Res > P1Res && P1Res >= 3)
+        if (P2Points > P1Points && P1Points >= 3)
             score = "Advantage player2";
         return score;
 	}
@@ -75,9 +75,9 @@ public class TennisGame2 implements TennisGame
 	
     public void wonPoint(String player) {
         if (player == "player1")
-			P1Res++;
+			P1Points++;
 		else
-			P2Res++;
+			P2Points++;
     }
 
 }
