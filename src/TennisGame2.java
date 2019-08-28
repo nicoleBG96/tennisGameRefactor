@@ -17,17 +17,29 @@ public class TennisGame2 implements TennisGame
 
     public String getScore(){
         if(isTie())
-        	score = getLiteralScore(P1Points)+ "-All";
+        	score = getScoreForTie();
         if (isDeuce())
-        	score = "deuce";
+        	score = getScoreForDeuce();
         if(isNormal())
-        	score = getLiteralScore(P1Points) 
-			+ "-" 
-			+ getLiteralScore(P2Points);
+        	score = getScoreForNormal();
         advantage();
         win();
         return score;
     }
+
+	private String getScoreForNormal() {
+		return getLiteralScore(P1Points) 
+		+ "-" 
+		+ getLiteralScore(P2Points);
+	}
+
+	private String getScoreForDeuce() {
+		return "deuce";
+	}
+
+	private String getScoreForTie() {
+		return getLiteralScore(P1Points)+ "-All";
+	}
 
 	private boolean isNormal() {
 		return P1Points !=P2Points  && 
