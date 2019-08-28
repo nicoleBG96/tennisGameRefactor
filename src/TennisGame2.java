@@ -55,10 +55,14 @@ public class TennisGame2 implements TennisGame
 	}
 
 	private void advantage() {
-		if (P1Points > P2Points && P2Points >= 3)
+		if (isAdvantageOver(P1Points, P2Points))
             score = "Advantage player1";
-        if (P2Points > P1Points && P1Points >= 3)
+        if (isAdvantageOver(P2Points, P1Points))
             score = "Advantage player2";
+	}
+
+	private boolean isAdvantageOver(int firstPlayerPoints, int secondPlayerPoints) {
+		return firstPlayerPoints > secondPlayerPoints && secondPlayerPoints >= 3;
 	}
 
 	private String getLiteralScore(int playerPoints) {
