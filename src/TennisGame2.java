@@ -72,20 +72,12 @@ public class TennisGame2 implements TennisGame
 		    result = "Forty";
 		return result;
 	}
-
-	public void P1Score(){
-        P1Res++;
-    }
-    
-    public void P2Score(){
-        P2Res++;
-    }
-
+	
     public void wonPoint(String player) {
         if (player == "player1")
-            P1Score();
-        else
-            P2Score();
+			P1Res++;
+		else
+			P2Res++;
     }
 
 }
